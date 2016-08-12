@@ -61,19 +61,19 @@
       <form role="form">
           <div class="form-group">
             <label for="Title">Title</label>
-            <input type="text" name="title" class="form-control" id="email" placeholder="Title" required ng-minlength=3 ng-maxlength=12 ng-model="post.title">
+            <input type="text" name="title" class="form-control" id="email" placeholder="Title" required ng-minlength=3 ng-maxlength=12 ng-model="newPost.title">
           </div>
           <div class="form-group">
             <label for="author">Author</label>
-            <input type="text" name="author" class="form-control" id="email" placeholder="Author" ng-model="post.author" required>
+            <input type="text" name="author" class="form-control" id="email" placeholder="Author" ng-model="newPost.author" required>
           </div>
           <div class="form-group">
             <label for="image">Image URL</label>
-            <input type="text" name="image" class="form-control" id="email" placeholder="Image Url" ng-model="post.image" required>
+            <input type="text" name="image" class="form-control" id="email" placeholder="Image Url" ng-model="newPost.image" required>
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <input type="text" name=""description class="form-control" id="pwd" placeholder="Description" ng-model="post.description" required>
+            <input type="text" name=""description class="form-control" id="pwd" placeholder="Description" ng-model="newPost.description" required>
           </div>
           <button type="submit" class="btn btn-default" ng-click="addPost()">Submit</button>
       </form>
@@ -89,21 +89,24 @@
           <div class="inLine">
             <p class="inLine"><span class="glyphicon glyphicon-calendar">{{post.date}} | </p>
             <p class="inLine" ng-click="showComments(post)"><span class="glyphicon glyphicon-comment"> {{post.commentCount}} comments | </p>
-            <p class="inLine"><span class="glyphicon glyphicon-pencil"> Add Comment</p>
+            <p class="inLine"><span class="glyphicon glyphicon-pencil" ng-click="showCommentForm()"> Add Comment</p>
             <div class="comments" ng-show="commentsShow">
               <ul ng-repeat="comment in post.comments">
-                <p>{{comment}}</p>
+                <label>Author: </label>
+                <p class="inLine">{{comment.author}}</p>
+                <label>comment: </label>
+                <p class="inLine">{{comment.comment}}</p>
               </ul>
             </div>
-            <div class="commentForm" class="inLine">
+            <div class="commentForm" class="inLine" ng-show="commentForm">
               <form role="form">
-                <label for="author" ng-model="comment.author">Author</label>
-                <input type="text" class="form-control">
-                <label for="comment" ng-model="comment.comment">comment</label>
-                <input type="text" class="form-control">
+                <label for="author" name="author">Author</label>
+                <input type="text" class="form-control"ng-model="newComment.author">
+                <label for="comment" name="comment" >comment</label>
+                <input type="text" class="form-control" ng-model="newComment.comment">
                 <button type="submit" class="btn btn-default" ng-click="addComment(post)">Add Comment</button>
               </form>
-          </div>
+            </div>
         </div>
         </div>
       </div>
