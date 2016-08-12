@@ -6,6 +6,7 @@
   <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
@@ -33,7 +34,7 @@
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control" placeholder="Search" ng-model="searchBox">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -59,35 +60,50 @@
     <div class="formContainer" ng-show="show">
       <form role="form">
           <div class="form-group">
-            <label for="email">Title</label>
-            <input type="email" class="form-control" id="email">
+            <label for="Title">Title</label>
+            <input type="text" name="title" class="form-control" id="email" placeholder="Title" required ng-minlength=3 ng-maxlength=12 ng-model="post.title">
           </div>
           <div class="form-group">
-            <label for="email">Author</label>
-            <input type="email" class="form-control" id="email">
+            <label for="author">Author</label>
+            <input type="text" name="author" class="form-control" id="email" placeholder="Author" ng-model="post.author" required>
           </div>
           <div class="form-group">
-            <label for="email">Image URL</label>
-            <input type="email" class="form-control" id="email">
+            <label for="image">Image URL</label>
+            <input type="text" name="image" class="form-control" id="email" placeholder="Image Url" ng-model="post.image" required>
           </div>
           <div class="form-group">
-            <label for="pwd">Description</label>
-            <input type="password" class="form-control" id="pwd">
+            <label for="description">Description</label>
+            <input type="text" name=""description class="form-control" id="pwd" placeholder="Description" ng-model="post.description" required>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default" ng-click="addPost()">Submit</button>
       </form>
     </div>
-    <ul ng-repeat="post in view.posts |orderBy:sort">
+    <ul ng-repeat="post in view.posts |orderBy:sort |filter:searchBox">
       <div class="panel panel-default">
         <div class="panel-body">
           <img ng-src='{{post.image}}'>
           <div class="block">
-          <p>{{post.location}}||<p ng-click="post.votes=post.votes+1" class="glyphicon glyphicon-arrow-up"></p><p ng-click="post.votes=post.votes-1" class="glyphicon glyphicon-arrow-down"></p><p ng-class="{green:post.votes>0,red:post.votes<0}">{{post.votes}}</p>
-          <p>By {{post.author}}</p>
-          <p>{{post.paragraph}}</p>
-          <p><span class="glyphicon glyphicon-calendar">{{post.date}}</p>
-          <p><span class="glyphicon glyphicon-comment">{{post.comments}}</p>
-          <p><span class="glyphicon glyphicon-pencil">add comments</p>
+          <p class="inLine">{{post.title}}||<p ng-click="post.votes=post.votes+1" class="glyphicon glyphicon-arrow-up"></p><p ng-click="post.votes=post.votes-1" class="glyphicon glyphicon-arrow-down"></p><p ng-class="{green:post.votes>0,red:post.votes<0}" class="inLine">{{post.votes}}</p>
+          <p class="author">By {{post.author}}</p>
+          <p>{{post.description}}</p>
+          <div class="inLine">
+            <p class="inLine"><span class="glyphicon glyphicon-calendar">{{post.date}} | </p>
+            <p class="inLine" ng-click="showComments(post)"><span class="glyphicon glyphicon-comment"> {{post.commentCount}} comments | </p>
+            <p class="inLine"><span class="glyphicon glyphicon-pencil"> Add Comment</p>
+            <div class="comments" ng-show="commentsShow">
+              <ul ng-repeat="comment in post.comments">
+                <p>{{comment}}</p>
+              </ul>
+            </div>
+            <div class="commentForm" class="inLine">
+              <form role="form">
+                <label for="author" ng-model="comment.author">Author</label>
+                <input type="text" class="form-control">
+                <label for="comment" ng-model="comment.comment">comment</label>
+                <input type="text" class="form-control">
+                <button type="submit" class="btn btn-default" ng-click="addComment(post)">Add Comment</button>
+              </form>
+          </div>
         </div>
         </div>
       </div>
