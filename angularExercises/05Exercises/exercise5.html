@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body ng-init="names=['Harry', 'Ron', 'Hermione', 'Sirius', 'Hedwig', 'Tonks']">
+    <p ng-init="symbols=['Spades', 'Clubs', 'Hearts', 'Diamonds']"></p>
+    <p ng-init="numbers=[1,2,5,6,9,9]"></p>
+
+    <ul>
+      <li ng-repeat='name in numbers track by $index' >
+        {{name}}
+      </li>
+    </ul>
+
+    <ul>
+      <li ng-repeat='name in symbols' >
+        {{name}}
+      </li>
+    </ul>
+
+    <ul>
+      <li ng-repeat='name in names' >
+        {{name}}
+      </li>
+    </ul>
+
+    <div ng-show='3 + 4 == 5'>
+      3 + 4 isn't 5, don't show
+    </div>
+    <div ng-show='3 + 4 == 7'>
+      3 + 4 is 7, do show
+    </div>
+
+    <div ng-hide='3 + 4 == 5'>
+        3 + 4 isn't 5, don't hide
+    </div>
+
+    <div ng-hide='3 + 4 == 7'>
+      3 + 4 is 7, do hide
+    </div>
+
+  </body>
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+</html>

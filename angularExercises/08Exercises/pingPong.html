@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="pingPong">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel = "stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <div class = "main" ng-controller="pingPongController">
+    <h1>Ping Pong Score Keeper</h1>
+  <button ng-click = "addPointPlayerOne()" class = "playerOne" ng-class = "{winner:fields.score1>11}">
+    <h2>Player 1</h2>
+    <span>{{fields.score1}}</span>
+    <span ng-show = "show">serving</span>
+  </button>
+  <button ng-click = "addPointPlayertwo()" class="playerTwo" ng-class="{winner:fields.score2>11}">
+    <h2>Player 2</h2>
+    <span>{{fields.score2}}</span>
+    <span ng-show = "!show">serving</span>
+  </button>
+  <button ng-click = "clear()">Reset</button>
+<h3>The div was entered {{view.enterCount}} times</h3>
+<div class="divbox" ng-style="myStyle" ng-mouseenter="myStyle={'background-color':randomColor()}">
+</div>
+<span ng-style="myStyle">Sample Text</span>
+<pre>myStyle={{myStyle}}</pre>
+</div>
+</body>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <script src = "pingPong.js"></script>
+</html>

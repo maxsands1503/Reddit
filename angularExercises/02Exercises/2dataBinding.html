@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ greeting }} World</title>
+  </head>
+  <body>
+    <input type="text" placeholder="What is your name?" ng-model="name">
+    <input type="text" placeholder="Lowercase" ng-model="lower">
+    <select ng-model="animal">
+      <option value="dogs" >dogs</option>
+      <option value="cats">Cats</option>
+      <option value="dogs and cats">Dogs Cats</option>
+      <option value="neither">Neither</option>
+    </select>
+    <select ng-model="decimals">
+      <option value="1" >1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <h1>My name is: {{name}}</h1>
+    <h1>Big little: {{lower | uppercase}}</h1>
+    <h1>My facorite animal is: {{animal}}</h1>
+    <h1>Money is: {{3.14159265359 | currency: "€"}}</h1>
+    <h1>Pi is: {{3.14159265359 | number: decimals }}</h1>
+  </body>
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+</html>

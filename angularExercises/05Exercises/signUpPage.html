@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Sign Up Page</h1>
+    <input type="text " ng-model="mystring">
+    <div ng-class='{red : mystring.length<6,green : mystring.length>6}'>Your password is: {{mystring.length}} characters long</div>
+    <p ng-show="mystring.length<6">Password is invalid!</p>
+    <button ng-show="mystring.length>6">Signup</button>
+    <div ng-class='{highlight : 4 + 4 == 8}'> 4 + 4 = 8</div>
+    <div ng-class='{highlight : 4 + 4 == 10}'>4 + 4 = 10</div>
+  </body>
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+</html>

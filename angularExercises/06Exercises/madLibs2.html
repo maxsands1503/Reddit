@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="madLibs">
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body ng-controller="madLibsController">
+    <p>Boy's Name</p>
+    <input type="text" ng-model="fields.name">
+    <p>Adjective</p>
+    <input type="text" ng-model="fields.adj1">
+    <p>Plural Noun</p>
+    <input type="text" ng-model="fields.pn1">
+    <p>Plural Noun</p>
+    <input type="text" ng-model="fields.pn2">
+    <p>An Insect Plural</p>
+    <input type="text" ng-model="fields.pn3">
+    <p>Plural Noun</p>
+    <input type="text" ng-model="fields.pn4">
+    <p>A verb ending in "s"</p>
+    <input type="text" ng-model="fields.verb"> 
+    <button ng-click="toggle()">Generate</button>
+
+    <div ng-show="show">
+    <h3>I'm in love with <span>{{fields.name}}</span>. He's so
+    <span>{{fields.adj1}}</span>! He has big flat <span>{{fields.pn1}}</span>,
+    and when our <span>{{fields.pn2}}</span> meet, I get <span>{{fields.pn3}}</span>
+    in my stomach. I've fallen for him like a ton of <span>{{fields.pn4}}</span>,
+     and he <span>{{fields.verb}}</span> for me, too. But I think he's got another
+     girlfriend. What should I do?</h3>
+    </div>
+
+    <button ng-click="clear()">Clear</button>
+  </body>
+<script type="text/javascript" src="madLibs.js"></script>
+</html>

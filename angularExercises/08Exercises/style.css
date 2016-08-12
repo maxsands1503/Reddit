@@ -1,0 +1,31 @@
+body{
+  background: green;
+}
+.main{
+  text-align: center;
+}
+.playerOne{
+  background-color: Blue;
+  height: 500px;
+  width: 500px;
+  display: inline-block;
+  margin-left: 125px;
+  margin-right: 25px;
+  text-align: center;
+}
+.playerTwo{
+  text-align: center;
+  background-color: Blue;
+  height: 500px;
+  width: 500px;
+  display: inline-block;
+}
+.winner{
+  background-color: red;
+}
+.divbox {
+  width: 400px;
+  height: 400px;
+  border-style: solid;
+  border-width: 6px;
+}

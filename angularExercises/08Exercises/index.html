@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div ng-controller="mainController">
+    <h3>The number is: {{view.number}}</h3>
+    <p>{{name}}</p>
+    <button ng-click="pickRandomNumber()">Pick Random Number</button>
+    <input type="text" ng-model="view.field">
+    <button ng-click="clearView()">clear</button>
+
+  </div>
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <script src="script.js"></script>
+</html>

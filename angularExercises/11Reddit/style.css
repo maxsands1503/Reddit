@@ -1,0 +1,27 @@
+body{
+  background: green;
+}
+.block{
+  display: inline-block;
+}
+.formContainer{
+  width: 80vw;
+  margin-left: 100px;
+  margin-bottom: 25px;
+}
+img{
+  height:100px;
+  width:150px;
+}
+.green{
+  color:green;
+}
+.red{
+  color:red;
+}
+.dropdown-toggle{
+  margin-right: 55vw;
+}
+.dropdown-menu{
+  margin-right: 55vw;
+}
