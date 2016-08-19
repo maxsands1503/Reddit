@@ -12,14 +12,74 @@
     <base href="/">
   </head>
   <body>
-    <div ng-controller="OMDB">
-      <h1>Angular OMDB API Search</h1>
-      <h2>enter a movie by title.</h2>
-      <form>
-        <input ng-model="userInput">
-        <button type"button" ng-click="view.trigger()">Search</button>
-      </form>
-    </div>
+    <div ng-controller="main">
+      <div class="guarantee">Guaranteed Awesome</div>
+     <h1 class="head">Welcom to Mean T</h1>
+     <div class="navBar"><a href="#">Home</a><a href="#">About</a><a href="#">Contact</a></div>
+     <div class="filters">
+       <div class="inline">Search by Category</div>
+       <select ng-model="sort">
+         <option value="date">Dark</option>
+         <option value="comments">Cold</option>
+         <option value="votes">Awesome</option>
+         <option value="votes">Dry</option>
+         <option value="votes">hot</option>
+         <option value="votes">Summer</option>
+         <option value="votes">Lucid</option>
+         <option value="votes">Warm</option>
+         <option value="votes">Winter</option>
+         <option value="votes">Spring</option>
+       </select>
+       <label>Search by Name</label>
+        <input type="text" class="inline" placeholder="Search" ng-model="searchBox">
+       <div class="inline" id="checkout">Check Out Bag {empty}</div>
+     </div>
+     <div class="tableTop">
+       <div class="inline">Tea</div>
+       <div class="inline">information</div>
+       <div class="inline" id="sortBy">
+         <select ng-model="sort">
+           <option value="date">Dark</option>
+           <option value="comments">Cold</option>
+           <option value="votes">Awesome</option>
+           <option value="votes">Dry</option>
+           <option value="votes">hot</option>
+           <option value="votes">Summer</option>
+           <option value="votes">Lucid</option>
+           <option value="votes">Warm</option>
+           <option value="votes">Winter</option>
+           <option value="votes">Spring</option>
+         </select>
+      </div>
+     </div>
+     <div ng-repeat="tea in view.data |orderBy:sort |filter:searchBox ">
+       <div class="teaContainer">
+         <div class="inline">
+           <img ng-src= '{{tea.imageUrl}}'>
+         </div>
+         <div class="teaInfoContainer inline">
+           <h1>{{tea.name}}</h1>
+           <div>Price: {{tea.price}}</div>
+           <div>Caffeine Scale: {{tea.caffeineScale}}</div>
+           <div>Ingredients: {{tea.ingredients}}</div>
+           <div>rating: {{tea.rating}}</div>
+           <div>In Stock: {{tea.inStock}}</div>
+           <div>Categories: {{tea.categories}}</div>
+           <div> {{tea.id}}</div>
+         </div>
+         <div class="inline">
+           <h1 class="inline">Quantity</h1>
+           <select>
+             <option>1</option>
+             <option>2</option>
+             <option>3</option>
+             <option>4</option>
+           </select>
+           <button>Add to Cart</button>
+         </div>
+       </div>
+     </div>
+   </div>
 
     <div ng-view></div>
   </body>
