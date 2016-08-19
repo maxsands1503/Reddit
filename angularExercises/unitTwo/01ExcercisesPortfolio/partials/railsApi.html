@@ -1,0 +1,10 @@
+<h1>Rails Api App</h1>
+<form>
+  <input ng-model="view.text">text</input>
+  <input ng-model="view.name">name</input>
+  <button ng-click="view.postMessage()">submit</button>
+</form>
+<div ng-repeat="message in view.pageMessages ">
+  <h2>{{message.name}}</h2>
+  <p>{{message.content}}</p>
+</div>

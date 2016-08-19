@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="mainAng">
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> Keeeeyyyyybob this:  {{"0044_0555" | kebab }}</h1>
+    <h1>Camel Case This {{"river FRONT" | camel }}</h1>
+    <h1>{{"My dog Rupert is the best" | redact:"dog" }}</h1>
+
+
+    <h2>the counter is {{counter}}</h2>
+    <button ng-click="increment()">click here</button>
+
+    <h1>NAVBAR</h1>
+    <div ng-view></div>
+    <h1>FOOTER</h1>
+
+  </body>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="filters.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+</html>

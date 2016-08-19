@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="mainAng">
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title></title>
+    <base href="/">
+  </head>
+  <body> 
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="/#/">Home</a></li>
+        <li><a href="/#/resume">Resume</a></li>
+        <li><a href="/#/bio">Bio</a></li>
+        <li><a href="/#/calculator">Calculator</a></li>
+        <li><a href="/#/calculatorrefactored">Calculator Refactored</a></li>
+        <li><a href="/#/zenWisdom">Zen Wisdom</a></li>
+        <li><a href="/#/appleMusic">Apple Music</a></li>
+        <li><a href="/#/railsApi">Rails Api</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div ng-view></div>
+  </body>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="filters.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+</html>

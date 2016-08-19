@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="mainAng">
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+    <base href="/">
+  </head>
+  <body>
+    <div ng-controller="OMDB">
+      <h1>Angular OMDB API Search</h1>
+      <h2>enter a movie by title.</h2>
+      <form>
+        <input ng-model="userInput">
+        <button type"button" ng-click="view.trigger()">Search</button>
+      </form>
+    </div>
+
+    <div ng-view></div>
+  </body>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="services.js"></script>
+<script type="text/javascript" src="filters.js"></script>
+<script type="text/javascript" src="controllers.js"></script>
+</html>

@@ -1,0 +1,7 @@
+  <div ng-repeat="movie in searchResults">
+    <div class="movieBlocks">
+       <h1 ng-click="view.getSingleMovie(movie.imdbID)" >{{movie.Title}}</h1>
+      <p>{{movie.Year}}</p>
+      <p>{{movie.imdbID}}</p>
+    </div>
+  </div>
