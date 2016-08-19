@@ -19,6 +19,7 @@
   border-color:black;
   margin-left: 20px;
   margin-right: 20px;
+  font-size:20px;
 }
 .inline{
   display: inline-block;
@@ -30,6 +31,7 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: -15px;
+  border-bottom: none;
 }
 img{
   width: 250px;
@@ -45,7 +47,6 @@ img{
   margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 .filters{
   margin-left: 20px;
@@ -55,9 +56,32 @@ img{
 }
 #checkout{
   float:right;
+  background-color: orange;
 }
 #sortBy{
   float:right;
   width: 20px;
-  margin-right: 20px;
+  margin-right: 60px;
+}
+#information{
+  margin-left: 30vw;
+}
+#addBag{
+  background-color: yellow;
+}
+#mrT{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+#side{
+display:inline-block;
+}
+#pic{
+  height: 150px;
+  width:150px;
+  margin-left: 100px;
+}
+.floatRight{
+  margin-left: 500px;
 }
