@@ -1,8 +1,10 @@
 app.factory("meanTeaFactory", function($http){
   return {
-    addTea: function (quantiy,teaID) {
-       console.log("hi");
-       console.log(teaID);
+    shoppingCart:[],
+
+    addTea: function (quantity,teaID) {
+      this.shoppingCart.teaQuantity=quantity;
+      this.shoppingCart.push(teaID)
     },
     hitApi: function (movieID) {
 

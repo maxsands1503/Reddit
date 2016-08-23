@@ -11,11 +11,14 @@ app.controller('shoppingCart', function($scope, $http,$location) {
 app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
   $scope.view = {};
   $scope.view.test= "this is working";
-  $scope.view.shoppingCart = 0;
+  $scope.view.shoppingCart = meanTeaFactory.shoppingCart.length;
+  $scope.quantity="1";
   $scope.view.addToCart= function(quantity,teaID){
-    $scope.view.shoppingCart+=Number(quantity);
     meanTeaFactory.addTea(quantity,teaID);
-  }
+    console.log(quantity)
+      console.log(teaID);
+      console.log(meanTeaFactory);
+    }
   $scope.view.checkout = function(){
     console.log("hi");
   $location.url("/shoppingCart")
@@ -26,7 +29,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Bayard stew",
           "ingredients": "concentrated gluten, jewelry, dill, beetle nut, toast",
           "caffeineScale": 244,
-          "price": 15.40,
+          "price": 1540,
           "inStock": true,
           "rating": 1,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32664_d?$cimg$",
@@ -39,7 +42,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Incompactness syrup",
           "ingredients": "fennel, nutmeg leaves, parsley, cream of 'cream of cream', blarney",
           "caffeineScale": 49,
-          "price": 73.48,
+          "price": 7348,
           "inStock": true,
           "rating": 2,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32303_d?$cimg$",
@@ -51,7 +54,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Flexner white tea",
           "ingredients": "hot sauce, iron, beetle nut, fresco, blarney, raw mashed potato",
           "caffeineScale": 38,
-          "price": 49.91,
+          "price": 4991,
           "inStock": true,
           "rating": 4,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
@@ -63,7 +66,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Pressor leaf",
           "ingredients": "purina chow, flavorings, pepper, acorns, quality tallow, old sock, bay leaf",
           "caffeineScale": 153,
-          "price": 54.96,
+          "price": 5496,
           "inStock": true,
           "rating": 1,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
@@ -75,7 +78,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Flexner veggie tea",
           "ingredients": "cream of tartar, eggplant, cake, deer antler",
           "caffeineScale": 181,
-          "price": 24.45,
+          "price": 2445,
           "inStock": true,
           "rating": 1,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32621_d?$cimg$",
@@ -87,7 +90,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Topflighter malt",
           "ingredients": "botox, toast, cream of 'cream of 'cream of cream'', kitchen scraps, beef, aligator tongue, lawn clippings",
           "caffeineScale": 241,
-          "price": 44.86,
+          "price": 4486,
           "inStock": true,
           "rating": 3,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31359_d?$cimg$",
@@ -99,7 +102,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Cooking mix",
           "ingredients": "flavorings, roasted mushrooms, toast, tumeric",
           "caffeineScale": 230,
-          "price": 69.73,
+          "price": 6973,
           "inStock": true,
           "rating": 3,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32303_d?$cimg$",
@@ -111,7 +114,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Cooking stew",
           "ingredients": "eggplant",
           "caffeineScale": 122,
-          "price": 60.03,
+          "price": 6003,
           "inStock": true,
           "rating": 2,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
@@ -123,7 +126,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Prevenient herb tea",
           "ingredients": "cream of tartar, cream of cream, kitchen scraps, flavorings",
           "caffeineScale": 196,
-          "price": 13.74,
+          "price": 1374,
           "inStock": true,
           "rating": 3,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32174_d?$cimg$",
@@ -135,7 +138,7 @@ app.controller('inventory', function($scope, $http,$location,meanTeaFactory) {
           "name": "Angular mix",
           "ingredients": "hot sauce, lawn clippings, fennel, parsley, quinine",
           "caffeineScale": 196,
-          "price": 41.58,
+          "price": 4158,
           "inStock": true,
           "rating": 2,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32621_d?$cimg$",
