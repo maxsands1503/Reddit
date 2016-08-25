@@ -1,4 +1,10 @@
-<h1>You are in the shopping Cart</h1>
+<h1 class="inline">My Shopping Bag</h1>
+<h1 class="inline floatRight">Order Total  Variable</h1>
+<div class="tableTop">
+  <div class="inline">Product</div>
+  <div class="inline" id="information">quantity</div>
+  <div class="inline" id="information">SubTotal</div>
+</div>
 <div ng-repeat="tea in view.data |orderBy:pricesort|filter:sort |filter:searchBox ">
   <div class="teaContainer">
     <div class="inline">
@@ -7,8 +13,8 @@
     <div class="teaInfoContainer inline">
       <h1 class="inline">{{tea.name}}</h1>
       <div class="inline floatRight">
-        <h1 class="inline">Quantity</h1>
-        <h2>{{tea.quantity}} </h2>
+        <h1 class="inline">Quantity: {{tea.quantity}}</h1>
+        <h1 >Subtotal: {{tea.quantity * tea.price/100 | currency:"$ "}}</h1>
       </div>
       <div>Price: {{tea.price /100 | currency:"$ "}}</div>
       <div>Caffeine Scale: {{tea.caffeineScale}}</div>
