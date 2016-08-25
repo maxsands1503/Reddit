@@ -1,2 +1,27 @@
 <h1>You are in the shopping Cart</h1>
-<h2>{{view.test}}</h2>
+<div ng-repeat="tea in view.data |orderBy:pricesort|filter:sort |filter:searchBox ">
+  <div class="teaContainer">
+    <div class="inline">
+      <img ng-src= '{{tea.imageUrl}}'>
+    </div>
+    <div class="teaInfoContainer inline">
+      <h1 class="inline">{{tea.name}}</h1>
+      <div class="inline floatRight">
+        <h1 class="inline">Quantity</h1>
+        <h2>{{tea.quantity}} </h2>
+      </div>
+      <div>Price: {{tea.price /100 | currency:"$ "}}</div>
+      <div>Caffeine Scale: {{tea.caffeineScale}}</div>
+      <div>Ingredients: {{tea.ingredients}}</div>
+      <div>rating: {{tea.rating}}</div>
+      <div>In Stock: {{tea.inStock== true ? "yes" : "no"}}</div>
+      <div>Categories:</div>
+      <ul>
+        <div ng-repeat="cat in tea.categories">
+             <li>{{cat}}</li>
+        </div>
+      </ul>
+      <div>{{tea._id}}</div>
+    </div>
+  </div>
+</div>
