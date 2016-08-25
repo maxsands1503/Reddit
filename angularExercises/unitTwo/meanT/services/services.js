@@ -12,7 +12,7 @@ app.factory("meanTeaFactory", function($http){
           if(this.shoppingCart[i]._id===tea._id){
             this.shoppingCart[i].quantity+=Number(quantity)
             return
-          }else{
+          }else if (i===this.shoppingCart.length-1){
             tea.quantity = Number(quantity);
             this.shoppingCart.push(tea)
           }

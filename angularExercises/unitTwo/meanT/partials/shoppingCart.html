@@ -1,5 +1,5 @@
 <h1 class="inline">My Shopping Bag</h1>
-<h1 class="inline floatRight">Order Total  Variable</h1>
+<h1 class="inline floatRight" ng-init="view.orderTotal()">Order Total {{view.total/100 | currency:"$ "}}</h1>
 <div class="tableTop">
   <div class="inline">Product</div>
   <div class="inline" id="information">quantity</div>
@@ -14,7 +14,17 @@
       <h1 class="inline">{{tea.name}}</h1>
       <div class="inline floatRight">
         <h1 class="inline">Quantity: {{tea.quantity}}</h1>
+        <select ng-model="quantity" ng-show="view.toggle">
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+        </select>
         <h1 >Subtotal: {{tea.quantity * tea.price/100 | currency:"$ "}}</h1>
+          <button ng-click="view.delete(tea._id)" id="addBag">Delete</button>
+          <button ng-click="view.edit(tea._id)" id="addBag" ng-show="view.edit">Edit</button>
+          <button ng-click="view.confirm(quantity,tea._id)" ng-show="view.toggle" id="addBag">confirm</button>
+
       </div>
       <div>Price: {{tea.price /100 | currency:"$ "}}</div>
       <div>Caffeine Scale: {{tea.caffeineScale}}</div>
@@ -27,7 +37,6 @@
              <li>{{cat}}</li>
         </div>
       </ul>
-      <div>{{tea._id}}</div>
     </div>
   </div>
 </div>
