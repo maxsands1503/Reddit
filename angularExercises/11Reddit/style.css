@@ -1,5 +1,5 @@
 body{
-  background: green;
+  background: #797979;
 }
 .block{
   display: inline-block;
@@ -47,4 +47,23 @@ img{
 }
 .inLine{
   display:inline-block;
+}
+.imageCont{
+  height:100px;
+  width:150px;
+  display:inline-block;
+  vertical-align: middle;
+}
+.selectIn{
+  display: inline-block;
+}
+.panel-body{
+  background-color: #F8F8F8;
+  border: blue;
+  border-style:solid;
+  border-width: 2px;
+}
+.panel.panel-default{
+  background-color: blue;
+  margin-right: 50px;
 }

@@ -8,6 +8,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.3/angular-moment.js" charset="utf-8"></script>
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
 </head>
@@ -49,11 +51,13 @@
               </ul>
             </li>
           </ul>
+          <div class="selectIn">
           <select ng-model="sort">
             <option value="date">Date</option>
             <option value="comments">Comments</option>
             <option value="votes">Votes</option>
           </select>
+          </div>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -61,7 +65,8 @@
       <form role="form">
           <div class="form-group">
             <label for="Title">Title</label>
-            <input type="text" name="title" class="form-control" id="email" placeholder="Title" required ng-minlength=3 ng-maxlength=12 ng-model="newPost.title">
+            <input type="text" name="title" class="form-control" id="email" placeholder="Title" required ng-minlength=3
+            ng-maxlength=12 ng-model="newPost.title">
           </div>
           <div class="form-group">
             <label for="author">Author</label>
@@ -81,16 +86,20 @@
     <ul ng-repeat="post in view.posts |orderBy:sort |filter:searchBox">
       <div class="panel panel-default">
         <div class="panel-body">
-          <img ng-src='{{post.image}}'>
+          <div class="imageCont">
+            <img ng-src='{{post.image}}'>
+          </div>
           <div class="block">
-          <p class="inLine">{{post.title}}||<p ng-click="post.votes=post.votes+1" class="glyphicon glyphicon-arrow-up"></p><p ng-click="post.votes=post.votes-1" class="glyphicon glyphicon-arrow-down"></p><p ng-class="{green:post.votes>0,red:post.votes<0}" class="inLine">{{post.votes}}</p>
-          <p class="author">By {{post.author}}</p>
-          <p>{{post.description}}</p>
+            <p class="inLine">{{post.title}}||<p ng-click="post.votes=post.votes+1" class="glyphicon glyphicon-arrow-up"></p>
+            <p ng-click="post.votes=post.votes-1" class="glyphicon glyphicon-arrow-down"></p>
+            <p ng-class="{green:post.votes>0,red:post.votes<0}" class="inLine">{{post.votes}}</p>
+            <p class="author">By {{post.author}}</p>
+            <p>{{post.description}}</p>
           <div class="inLine">
             <p class="inLine"><span class="glyphicon glyphicon-calendar">{{post.date}} | </p>
-            <p class="inLine" ng-click="showComments(post)"><span class="glyphicon glyphicon-comment"> {{post.commentCount}} comments | </p>
-            <p class="inLine"><span class="glyphicon glyphicon-pencil" ng-click="showCommentForm()"> Add Comment</p>
-            <div class="comments" ng-show="commentsShow">
+            <p class="inLine" ng-click="showComments(post)"><span class="glyphicon glyphicon-comment"> {{post.comments.length}} comments | </p>
+            <p class="inLine"><span class="glyphicon glyphicon-pencil" ng-click="showCommentForm(post)"> Add Comment</p>
+            <div class="comments" ng-show="post.commentsShow">
               <ul ng-repeat="comment in post.comments">
                 <label>Author: </label>
                 <p class="inLine">{{comment.author}}</p>
@@ -98,7 +107,7 @@
                 <p class="inLine">{{comment.comment}}</p>
               </ul>
             </div>
-            <div class="commentForm" class="inLine" ng-show="commentForm">
+            <div class="commentForm" class="inLine" ng-show="post.commentForm">
               <form role="form">
                 <label for="author" name="author">Author</label>
                 <input type="text" class="form-control"ng-model="newComment.author">
@@ -107,7 +116,7 @@
                 <button type="submit" class="btn btn-default" ng-click="addComment(post)">Add Comment</button>
               </form>
             </div>
-        </div>
+            </div>
         </div>
       </div>
   </ul>
